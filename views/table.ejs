@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autó adatok</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 style="text-align: center">Autók táblázata</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Szín</th>
+                            <th>Márka</th>
+                            <th>Kép</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% autok.forEach(auto => { %>
+                            <tr>
+                                <td><%= auto.szin %></td>
+                                <td><%= auto.marka %></td>
+                                <td><img src="data:image/png;base64,<%= auto.kep %>" alt="Autó kép" style="width: 50px; background-color: aqua;">
+                                </td> 
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="row">
+            <% autok.forEach(auto => { %>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="data:image/png;base64,<%= auto.kep %>" class="card-img-top" alt="Autó kép">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= auto.marka %></h5>
+                            <p class="card-text">Szín: <%= auto.szin %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <style>
+        /* CSS az egységes méretű kártyákhoz */
+         /* Egységes méretű kártyák */
+         .card {
+            height: 100%;
+            transition: transform 0.3s ease; /* Animáció a transzformációra (pl. kiemelkedés) */
+        }
+        /* Kép méretezése */
+        .card-img-top {
+            object-fit: cover;
+            width: auto;
+        }
+        /* Kártya tartalma */
+        .card-body {
+            height: 100%;
+        }
+        /* Hover effekt */
+        .card:hover {
+            transform: scale(1.05); /* Kiemelkedés */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Árnyékolás */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
